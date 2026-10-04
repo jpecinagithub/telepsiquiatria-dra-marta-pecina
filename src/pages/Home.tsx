@@ -22,7 +22,6 @@ import { Services } from '../components/Services'
 import { AboutDoctor } from '../components/AboutDoctor'
 import { FirstConsultation } from '../components/FirstConsultation'
 import { FaqSection } from '../components/FaqSection'
-import { CtaBand } from '../components/CtaBand'
 
 const COPY = {
   bandHeading: {
@@ -113,7 +112,6 @@ export default function Home() {
       <FirstConsultation />
       <DistanceBand />
       <FaqSection />
-      <CtaBand />
       <EmergencyNotice />
       <JsonLd data={physicianJsonLd(lang)} />
     </>

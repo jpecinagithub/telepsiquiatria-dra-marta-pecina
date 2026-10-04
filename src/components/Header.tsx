@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { Menu, MessageCircle, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useLanguage, pick, type Lang } from '../i18n/LanguageContext'
-import { useWhatsApp } from './WhatsAppProvider'
 import { Container, cn } from './ui'
-import { NAV_ITEMS, CTA_LABEL } from '../data/navigation'
+import { NAV_ITEMS } from '../data/navigation'
 
 const COPY: Record<string, Record<Lang, string>> = {
   openMenu: { es: 'Abrir menú', en: 'Open menu' },
@@ -58,7 +57,6 @@ function LanguageSwitcher({ onSelect }: { onSelect?: () => void }) {
 
 export function Header() {
   const { lang } = useLanguage()
-  const { requestWhatsApp } = useWhatsApp()
   const [open, setOpen] = useState(false)
   const reduce = useReducedMotion()
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -84,11 +82,6 @@ export function Header() {
       isActive &&
         'text-navy-800 underline decoration-teal-600 decoration-2 underline-offset-8',
     )
-
-  const handleCta = () => {
-    setOpen(false)
-    requestWhatsApp()
-  }
 
   return (
     <>
@@ -121,14 +114,6 @@ export function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <LanguageSwitcher />
-            <button
-              type="button"
-              onClick={() => requestWhatsApp()}
-              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-navy-800 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-700"
-            >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              {pick(lang, CTA_LABEL)}
-            </button>
           </div>
 
           <button
@@ -202,16 +187,8 @@ export function Header() {
                 </ul>
               </nav>
 
-              <div className="flex flex-col gap-4 border-t border-mist-200 p-5">
+              <div className="border-t border-mist-200 p-5">
                 <LanguageSwitcher onSelect={() => setOpen(false)} />
-                <button
-                  type="button"
-                  onClick={handleCta}
-                  className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-navy-700"
-                >
-                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                  {pick(lang, CTA_LABEL)}
-                </button>
               </div>
             </motion.aside>
           </>

@@ -1,7 +1,6 @@
-import { AlertTriangle, Check, MessageCircle } from 'lucide-react'
+import { AlertTriangle, Check } from 'lucide-react'
 import { useLanguage, pick, type Lang } from '../i18n/LanguageContext'
-import { useWhatsApp } from './WhatsAppProvider'
-import { Container, Section, SectionHeading, Reveal, buttonPrimary } from './ui'
+import { Container, Section, SectionHeading, Reveal } from './ui'
 
 const COPY: Record<string, Record<Lang, string>> = {
   eyebrow: { es: 'La modalidad', en: 'The format' },
@@ -21,14 +20,6 @@ const COPY: Record<string, Record<Lang, string>> = {
   caution: {
     es: 'No todas las situaciones clínicas son adecuadas para la teleconsulta.',
     en: 'Not every clinical situation is suitable for teleconsultation.',
-  },
-  cta: {
-    es: 'Consultar si mi caso puede atenderse online',
-    en: 'Ask whether my situation can be handled online',
-  },
-  ctaMessage: {
-    es: 'Hola, me gustaría saber si mi caso puede atenderse mediante teleconsulta con la Dra. Marta Peciña.',
-    en: 'Hello, I would like to know whether my situation could be handled via teleconsultation with Dr. Marta Peciña.',
   },
 }
 
@@ -51,7 +42,6 @@ const BENEFITS: Record<Lang, string[]> = {
 
 export function HowItWorks() {
   const { lang } = useLanguage()
-  const { requestWhatsApp } = useWhatsApp()
 
   return (
     <Section
@@ -105,17 +95,6 @@ export function HowItWorks() {
                   {pick(lang, COPY.caution)}
                 </p>
               </div>
-
-              <button
-                type="button"
-                onClick={() =>
-                  requestWhatsApp(pick(lang, COPY.ctaMessage))
-                }
-                className={buttonPrimary}
-              >
-                <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                {pick(lang, COPY.cta)}
-              </button>
             </div>
           </Reveal>
         </div>

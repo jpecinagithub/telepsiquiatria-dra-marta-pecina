@@ -1,26 +1,11 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight, MessageCircle } from 'lucide-react'
 import { useLanguage, pick, type Lang } from '../i18n/LanguageContext'
-import { useWhatsApp } from './WhatsAppProvider'
-import {
-  Container,
-  Section,
-  SectionHeading,
-  Reveal,
-  buttonPrimary,
-  buttonSecondary,
-} from './ui'
-import { CTA_LABEL } from '../data/navigation'
+import { Container, Section, SectionHeading, Reveal } from './ui'
 
 const COPY: Record<string, Record<Lang, string>> = {
   eyebrow: { es: 'Primera vez', en: 'First time' },
   title: {
     es: 'Cómo es la primera consulta',
     en: 'What the first consultation looks like',
-  },
-  formLink: {
-    es: 'Ir al formulario de contacto',
-    en: 'Go to the contact form',
   },
 }
 
@@ -65,7 +50,6 @@ const STEPS: Step[] = [
 
 export function FirstConsultation() {
   const { lang } = useLanguage()
-  const { requestWhatsApp } = useWhatsApp()
 
   return (
     <div id="primera-consulta" className="scroll-mt-24 bg-sand-50">
@@ -107,23 +91,6 @@ export function FirstConsultation() {
               ))}
             </ol>
           </div>
-
-          <Reveal className="mt-10">
-            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <button
-                type="button"
-                onClick={() => requestWhatsApp()}
-                className={buttonPrimary}
-              >
-                <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                {pick(lang, CTA_LABEL)}
-              </button>
-              <Link to="/contacto" className={buttonSecondary}>
-                {pick(lang, COPY.formLink)}
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </Link>
-            </div>
-          </Reveal>
         </Container>
       </Section>
     </div>
