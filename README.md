@@ -35,8 +35,7 @@ No modifications needed:
 ```
 src/
   components/   Header, Hero, TrustIndicators, AboutDoctor, Services,
-                HowItWorks, FirstConsultation, FaqSection, WhatsAppCtas
-                (WhatsAppFloat, StickyMobileBar, CtaBand), ContactForm,
+                HowItWorks, FirstConsultation, FaqSection,
                 EmergencyNotice, Footer, InstallPrompt, WhatsAppProvider
                 (privacy interstitial), Seo (usePageMeta, JsonLd), ui
                 (Container, Section, SectionHeading, Reveal)
@@ -87,30 +86,20 @@ public/
 Do **not** use automated replies for symptom assessment or diagnosis, and do not
 ask for detailed clinical history in the first automated interaction.
 
-## Contact form → backend hook (for later)
+## Contact
 
-The form at `src/components/ContactForm.tsx` is frontend-only: it validates
-client-side (honeypot + in-memory rate guard included) and shows a confirmation
-panel that continues via WhatsApp. To attach a real backend later:
-
-1. Add an endpoint (e.g. a Vercel serverless function at `/api/contact`).
-2. POST the validated payload as JSON over HTTPS.
-3. Server-side: validate again, rate-limit, add bot protection (e.g. Turnstile),
-   store GDPR-compliantly with an explicit deletion policy, notify the practice.
-4. Replace the "continue via WhatsApp" step in `ContactForm.tsx` with the
-   `fetch()` call; keep the WhatsApp fallback.
-
-Never send form contents to analytics and never persist them in browser storage.
+First contact is handled exclusively through WhatsApp Business (+34 711 29 94 79):
+every WhatsApp exit shows a privacy interstitial first ("Continuar a WhatsApp" /
+"Cancelar"). There is no web form — nothing is collected, stored, or sent by
+the site itself.
 
 ## Privacy & safety notes
 
 - No `localStorage`/`sessionStorage` usage anywhere in the codebase.
-- Service worker caches **only static public assets**; form data, personal
-  data and third-party messaging content are never cached.
-- The form never asks for psychiatric symptoms; the free-text field carries an
-  explicit warning against sensitive clinical information.
+- Service worker caches **only static public assets**; personal data and
+  third-party messaging content are never cached.
 - Emergency notice ("Esta consulta no es un servicio de urgencias… 112")
-  appears on Home, FAQ, Contact, footer and next to the form.
+  appears on Home, FAQ and Contact.
 - No Meta Pixel, no session replay, no marketing opt-ins.
 - No cookie banner: the site sets no non-essential cookies
   (see `src/pages/Cookies.tsx`).

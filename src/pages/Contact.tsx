@@ -9,25 +9,19 @@ import {
   Reveal,
   buttonPrimary,
 } from '../components/ui'
-import { ContactForm } from '../components/ContactForm'
 import { practiceConfig } from '../config/practice'
 import { CTA_LABEL } from '../data/navigation'
 
 const COPY = {
   title: { es: 'Primer contacto', en: 'First contact' },
   intro: {
-    es: 'Si deseas información sobre una consulta, puedes escribir por WhatsApp o completar este formulario. Te responderemos para indicarte los siguientes pasos.',
-    en: 'If you would like information about a consultation, you can message us on WhatsApp or complete this form. We will reply with the next steps.',
+    es: 'Si deseas información sobre una consulta, escríbenos por WhatsApp. Te responderemos para indicarte los siguientes pasos.',
+    en: 'If you would like information about a consultation, message us on WhatsApp. We will reply with the next steps.',
   },
   waHeading: { es: 'WhatsApp', en: 'WhatsApp' },
   waBody: {
     es: 'La vía más rápida para el primer contacto. Al continuar verás un aviso de privacidad antes de abrir WhatsApp.',
     en: 'The fastest way to make first contact. Before continuing you will see a privacy notice before WhatsApp opens.',
-  },
-  formHeading: { es: 'Formulario de contacto', en: 'Contact form' },
-  formBody: {
-    es: 'Si prefieres escribirnos directamente aquí, completa el formulario y te responderemos.',
-    en: 'If you would rather write to us here, complete the form and we will reply.',
   },
   emailLabel: { es: 'Correo electrónico', en: 'Email' },
 } as const
@@ -79,20 +73,6 @@ export default function Contact() {
                       {CTA_LABEL[lang]}
                     </button>
                   </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.12} className="mt-8">
-              <div className="rounded-3xl border border-navy-800/10 bg-white/80 p-6 sm:p-8">
-                <h2 className="font-display text-xl font-semibold text-navy-900">
-                  {pick(lang, COPY.formHeading)}
-                </h2>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-500">
-                  {pick(lang, COPY.formBody)}
-                </p>
-                <div className="mt-6">
-                  <ContactForm />
                 </div>
               </div>
             </Reveal>

@@ -135,8 +135,8 @@ export const FAQ_ITEMS: FaqItem[] = [
       en: 'How do I cancel or reschedule an appointment?',
     },
     a: {
-      es: 'Para cancelar o cambiar una cita, escríbenos por WhatsApp o a través del formulario de contacto con la mayor antelación posible.',
-      en: 'To cancel or reschedule an appointment, message us on WhatsApp or through the contact form as far in advance as possible.',
+      es: 'Para cancelar o cambiar una cita, escríbenos por WhatsApp con la mayor antelación posible.',
+      en: 'To cancel or reschedule an appointment, message us on WhatsApp as far in advance as possible.',
     },
   },
 ]

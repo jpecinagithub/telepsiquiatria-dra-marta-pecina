@@ -18,8 +18,8 @@ const STEPS: Step[] = [
   {
     title: { es: 'Contacta', en: 'Get in touch' },
     text: {
-      es: 'Envía un mensaje breve por WhatsApp o utiliza el formulario de contacto.',
-      en: 'Send a short message via WhatsApp or use the contact form.',
+      es: 'Envía un mensaje breve por WhatsApp.',
+      en: 'Send a short message via WhatsApp.',
     },
   },
   {

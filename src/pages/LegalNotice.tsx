@@ -44,8 +44,8 @@ export default function LegalNotice() {
         en: 'Doctor–patient relationship',
       },
       body: {
-        es: 'El uso de este sitio web, el envío del formulario de contacto o el intercambio de mensajes no crean por sí mismos una relación médico-paciente. Dicha relación se establece únicamente durante la atención clínica.',
-        en: 'Using this website, submitting the contact form or exchanging messages does not by itself create a doctor–patient relationship. That relationship is established only during clinical care.',
+        es: 'El uso de este sitio web o el intercambio de mensajes no crean por sí mismos una relación médico-paciente. Dicha relación se establece únicamente durante la atención clínica.',
+        en: 'Using this website or exchanging messages does not by itself create a doctor–patient relationship. That relationship is established only during clinical care.',
       },
     },
     {

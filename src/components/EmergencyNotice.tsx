@@ -19,7 +19,7 @@ const COPY = {
 
 /**
  * Mandatory emergency notice. Rendered on: Home (before footer), FAQ page,
- * Contact page, footer, and next to the first-contact form.
+ * and Contact page.
  */
 export function EmergencyNotice({ compact = false }: { compact?: boolean }) {
   const { lang } = useLanguage()

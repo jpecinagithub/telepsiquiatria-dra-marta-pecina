@@ -30,8 +30,8 @@ const SECTIONS: PrivacySection[] = [
   {
     heading: { es: 'Datos que se recogen', en: 'Data collected' },
     body: {
-      es: 'Únicamente los datos que tú decides compartir en el formulario de contacto o por WhatsApp: tu nombre, la forma de contacto que indiques y el contenido de tu mensaje. No se recogen otros datos.',
-      en: 'Only the data you choose to share in the contact form or via WhatsApp: your name, the contact method you provide, and the content of your message. No other data is collected.',
+      es: 'Únicamente los datos que tú decides compartir al contactar por WhatsApp: tu nombre y el contenido de tu mensaje. No se recogen otros datos.',
+      en: 'Only the data you choose to share when contacting us via WhatsApp: your name and the content of your message. No other data is collected.',
     },
   },
   {
@@ -44,8 +44,8 @@ const SECTIONS: PrivacySection[] = [
   {
     heading: { es: 'Base jurídica', en: 'Legal basis' },
     body: {
-      es: 'La base jurídica del tratamiento es tu consentimiento, que otorgas al enviar el formulario o iniciar el contacto.',
-      en: 'The legal basis for processing is your consent, which you give by submitting the form or initiating contact.',
+      es: 'La base jurídica del tratamiento es tu consentimiento, que otorgas al iniciar el contacto.',
+      en: 'The legal basis for processing is your consent, which you give by initiating contact.',
     },
   },
   {
