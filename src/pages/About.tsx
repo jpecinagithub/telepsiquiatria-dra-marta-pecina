@@ -1,4 +1,5 @@
-import { Linkedin } from 'lucide-react'
+import { Linkedin, GraduationCap, Award, ClipboardList, Microscope, BookOpen } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { useLanguage, pick } from '../i18n/LanguageContext'
 import { usePageMeta, pageTitle } from '../components/Seo'
 import {
@@ -43,18 +44,22 @@ const COPY = {
 const TRAJECTORY: Array<{
   title: Record<'en' | 'es', string>
   place: string
+  icon: LucideIcon
 }> = [
   {
     title: { es: 'Licenciatura en Medicina', en: 'Medical Degree' },
     place: 'University of Navarra',
+    icon: GraduationCap,
   },
   {
     title: { es: 'Doctorado en Neurociencia', en: 'PhD in Neuroscience' },
     place: 'University of Navarra',
+    icon: Award,
   },
   {
     title: { es: 'Residencia en Psiquiatría', en: 'Psychiatry residency' },
     place: 'Clínica Universidad de Navarra (University of Navarra Medical Center)',
+    icon: ClipboardList,
   },
   {
     title: {
@@ -62,6 +67,7 @@ const TRAJECTORY: Array<{
       en: 'Postdoctoral training in Neuroimaging',
     },
     place: 'University of Michigan',
+    icon: Microscope,
   },
   {
     title: {
@@ -69,6 +75,7 @@ const TRAJECTORY: Array<{
       en: 'Associate Professor of Psychiatry and Bioengineering',
     },
     place: 'University of Pittsburgh',
+    icon: BookOpen,
   },
 ]
 
@@ -140,12 +147,14 @@ export default function About() {
               {TRAJECTORY.map((item, i) => (
                 <li
                   key={`${item.title.en}-${i}`}
-                  className="flex gap-5 border-b border-navy-800/10 py-6 first:border-t"
+                  className="flex items-start gap-5 border-b border-navy-800/10 py-6 first:border-t"
                 >
                   <span
-                    className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-teal-600"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-700/10 text-teal-700"
                     aria-hidden="true"
-                  />
+                  >
+                    <item.icon className="h-6 w-6" />
+                  </span>
                   <div>
                     <p className="text-lg font-semibold text-navy-900">
                       {pick(lang, item.title)}
