@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette sampled from the supplied logo */
+  --color-navy-950: #101f3a;
+  --color-navy-900: #16294d;
+  --color-navy-800: #1e3a6b; /* primary brand navy */
+  --color-navy-700: #274b85;
+  --color-navy-600: #35609f;
+  --color-navy-100: #dbe4f1;
+  --color-navy-50: #eef2f8;
+
+  --color-teal-700: #3d666f;
+  --color-teal-600: #4e7c86; /* muted teal from the brain mark */
+  --color-teal-500: #63909a;
+  --color-teal-100: #dde9ea;
+  --color-teal-50: #f0f5f5;
+
+  --color-sand-50: #faf8f3; /* warm white */
+  --color-sand-100: #f4f0e8;
+  --color-sand-200: #e9e2d3;
+
+  --color-mist-50: #f2f5f7; /* very light blue-grey */
+  --color-mist-100: #e6ebef;
+  --color-mist-200: #d3dbe2;
+
+  --color-ink-900: #23272c;
+  --color-ink-700: #2a2e33; /* neutral charcoal text */
+  --color-ink-500: #5b636e;
+  --color-ink-400: #7b8490;
+
+  --font-display: "Lora", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-sand-50 text-ink-700 font-sans antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible, elegant focus states (WCAG 2.2 AA) */
+:focus-visible {
+  outline: 3px solid var(--color-teal-600);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-navy-100);
+  color: var(--color-navy-900);
+}
+
+/* Thin editorial divider */
+.hr-soft {
+  border: 0;
+  border-top: 1px solid var(--color-mist-200);
+}
