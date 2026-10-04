@@ -79,17 +79,17 @@ export default function Faq() {
     <>
       <Section aria-labelledby="faq-heading" className="pt-20 sm:pt-24">
         <Container>
-          <Reveal>
+          <Reveal className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
               {pick(lang, COPY.eyebrow)}
             </p>
             <h1
               id="faq-heading"
-              className="mt-3 max-w-3xl font-display text-4xl sm:text-5xl leading-tight text-navy-900 text-balance"
+              className="mx-auto mt-3 max-w-3xl font-display text-4xl sm:text-5xl leading-tight text-navy-900 text-balance"
             >
               {pick(lang, COPY.title)}
             </h1>
-            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-500">
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-ink-500">
               {pick(lang, COPY.lead)}
             </p>
           </Reveal>
