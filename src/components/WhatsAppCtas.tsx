@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom'
 import { MessageCircle } from 'lucide-react'
 import { useLanguage, pick, type Lang } from '../i18n/LanguageContext'
 import { useWhatsApp } from './WhatsAppProvider'
-import { Container, Reveal } from './ui'
 import { CTA_LABEL } from '../data/navigation'
 
 const COPY: Record<string, Record<Lang, string>> = {
@@ -10,15 +8,6 @@ const COPY: Record<string, Record<Lang, string>> = {
     es: 'Contactar por WhatsApp',
     en: 'Contact via WhatsApp',
   },
-  bandTitle: {
-    es: 'Da el primer paso con tranquilidad',
-    en: 'Take the first step with confidence',
-  },
-  bandText: {
-    es: 'Escríbenos por WhatsApp o completa el formulario. Te responderemos para indicarte los siguientes pasos.',
-    en: 'Message us on WhatsApp or complete the form. We will reply with the next steps.',
-  },
-  contactForm: { es: 'Ir al formulario de contacto', en: 'Go to the contact form' },
 }
 
 /** Desktop-only floating WhatsApp button (bottom right). */
@@ -65,45 +54,5 @@ export function StickyMobileBar() {
         </div>
       </div>
     </>
-  )
-}
-
-/** Full-width closing call-to-action band. */
-export function CtaBand() {
-  const { lang } = useLanguage()
-  const { requestWhatsApp } = useWhatsApp()
-
-  return (
-    <section aria-labelledby="cta-band-title" className="bg-navy-900">
-      <Container className="py-16 text-center sm:py-20">
-        <Reveal>
-          <h2
-            id="cta-band-title"
-            className="mx-auto max-w-2xl font-display text-3xl leading-tight text-white text-balance sm:text-4xl"
-          >
-            {pick(lang, COPY.bandTitle)}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-navy-100">
-            {pick(lang, COPY.bandText)}
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={() => requestWhatsApp()}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-base font-semibold text-navy-900 transition-colors hover:bg-navy-50"
-            >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              {pick(lang, CTA_LABEL)}
-            </button>
-            <Link
-              to="/contacto"
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/40 px-7 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              {pick(lang, COPY.contactForm)}
-            </Link>
-          </div>
-        </Reveal>
-      </Container>
-    </section>
   )
 }

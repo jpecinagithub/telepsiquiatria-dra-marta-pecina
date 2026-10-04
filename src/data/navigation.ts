@@ -10,7 +10,7 @@ export const NAV_ITEMS: NavItem[] = [
   { to: '/la-dra-pecina', label: { es: 'La Dra. Peciña', en: 'Dr. Peciña' } },
   { to: '/telepsiquiatria', label: { es: 'Telepsiquiatría', en: 'Telepsychiatry' } },
   { to: '/#primera-consulta', label: { es: 'Primera consulta', en: 'First consultation' } },
-  { to: '/preguntas-frecuentes', label: { es: 'Preguntas frecuentes', en: 'FAQ' } },
+  { to: '/preguntas-frecuentes', label: { es: 'FAQ', en: 'FAQ' } },
   { to: '/contacto', label: { es: 'Contacto', en: 'Contact' } },
 ]
 
