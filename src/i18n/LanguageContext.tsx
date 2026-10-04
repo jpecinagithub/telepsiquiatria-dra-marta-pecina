@@ -18,12 +18,12 @@ interface LanguageValue {
 const LanguageContext = createContext<LanguageValue | null>(null)
 
 /**
- * Bilingual support, EN default.
+ * Bilingual support, ES default.
  * The choice is intentionally NOT persisted: this site must not write
  * personal data to browser storage, so the language resets to EN on reload.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('en')
+  const [lang, setLangState] = useState<Lang>('es')
 
   const setLang = useCallback((l: Lang) => setLangState(l), [])
   const toggleLang = useCallback(
