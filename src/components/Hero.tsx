@@ -66,6 +66,7 @@ export function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <button
               type="button"
+              id="hero-cta"
               onClick={() => requestWhatsApp()}
               className={buttonPrimary}
             >
