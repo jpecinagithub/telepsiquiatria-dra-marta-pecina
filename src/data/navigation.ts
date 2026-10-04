@@ -7,7 +7,7 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { to: '/', label: { es: 'Inicio', en: 'Home' } },
-  { to: '/la-dra-pecina', label: { es: 'La Dra. Peciña', en: 'Dr. Peciña' } },
+  { to: '/la-dra-pecina', label: { es: 'Dra. Peciña', en: 'Dr. Peciña' } },
   { to: '/telepsiquiatria', label: { es: 'Telepsiquiatría', en: 'Telepsychiatry' } },
   { to: '/#primera-consulta', label: { es: 'Primera consulta', en: 'First consultation' } },
   { to: '/preguntas-frecuentes', label: { es: 'FAQ', en: 'FAQ' } },
