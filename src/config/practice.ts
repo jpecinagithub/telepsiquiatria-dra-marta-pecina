@@ -16,7 +16,7 @@ export const practiceConfig = {
   email: '',
 
   /** Production URL used for canonical/OG tags and sitemap. Hidden until supplied. */
-  siteUrl: '',
+  siteUrl: 'https://telepsiquiatria-marta-pecina.vercel.app',
 
   /** Unknown business details — hidden until supplied by the practice. */
   consultationDuration: '',
