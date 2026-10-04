@@ -30,30 +30,28 @@ export function Footer() {
 
   return (
     <footer className="bg-navy-950 text-white/80" aria-label="Footer">
-      <Container className="py-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
+      <Container className="py-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-white/50">
               {pick(lang, COPY.contactTitle)}
             </h2>
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => requestWhatsApp()}
-                aria-label={pick(lang, COPY.whatsappCta)}
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-[15px] font-semibold text-white transition-colors hover:bg-white/20"
+            <button
+              onClick={() => requestWhatsApp()}
+              aria-label={pick(lang, COPY.whatsappCta)}
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-[15px] font-semibold text-white transition-colors hover:bg-white/20"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              {WHATSAPP_DISPLAY}
+            </button>
+            {practiceConfig.email && (
+              <a
+                href={`mailto:${practiceConfig.email}`}
+                className="inline-flex min-h-[44px] items-center text-[15px] text-white/75 underline-offset-4 hover:text-white hover:underline"
               >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                {WHATSAPP_DISPLAY}
-              </button>
-              {practiceConfig.email && (
-                <a
-                  href={`mailto:${practiceConfig.email}`}
-                  className="inline-flex min-h-[44px] items-center text-[15px] text-white/75 underline-offset-4 hover:text-white hover:underline"
-                >
-                  {practiceConfig.email}
-                </a>
-              )}
-            </div>
+                {practiceConfig.email}
+              </a>
+            )}
           </div>
 
           <nav
@@ -76,7 +74,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <hr className="my-8 border-white/10" />
+        <hr className="my-6 border-white/10" />
 
         <div className="flex flex-col items-start justify-between gap-3 text-sm text-white/50 sm:flex-row sm:items-center">
           <p>{pick(lang, COPY.rights).replace('{year}', String(year))}</p>
