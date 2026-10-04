@@ -16,17 +16,11 @@ const COPY = {
     es: 'Escribir por WhatsApp',
     en: 'Message on WhatsApp',
   },
-  rights: {
-    es: '© {year} Dra. Marta Peciña. Todos los derechos reservados.',
-    en: '© {year} Dr. Marta Peciña. All rights reserved.',
-  },
-  authorBy: { es: 'Created by', en: 'Created by' },
 } as const
 
 export function Footer() {
   const { lang } = useLanguage()
   const { requestWhatsApp } = useWhatsApp()
-  const year = new Date().getFullYear()
 
   return (
     <footer className="bg-navy-950 text-white/80" aria-label="Footer">
@@ -72,23 +66,6 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-        </div>
-
-        <hr className="my-6 border-white/10" />
-
-        <div className="flex flex-col items-start justify-between gap-3 text-sm text-white/50 sm:flex-row sm:items-center">
-          <p>{pick(lang, COPY.rights).replace('{year}', String(year))}</p>
-          <p>
-            {pick(lang, COPY.authorBy)}{' '}
-            <span className="text-white/70">Jon Peciña</span>
-            {' · '}
-            <a
-              href="mailto:jpecina@gmail.com"
-              className="underline-offset-4 hover:text-white hover:underline"
-            >
-              jpecina@gmail.com
-            </a>
-          </p>
         </div>
       </Container>
     </footer>
