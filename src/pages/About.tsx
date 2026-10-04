@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight, Linkedin, MessageCircle } from 'lucide-react'
+import { Linkedin } from 'lucide-react'
 import { useLanguage, pick } from '../i18n/LanguageContext'
-import { useWhatsApp } from '../components/WhatsAppProvider'
 import { usePageMeta, pageTitle } from '../components/Seo'
 import {
   Container,
@@ -9,7 +7,6 @@ import {
   SectionHeading,
   Reveal,
   cn,
-  buttonPrimary,
   buttonSecondary,
 } from '../components/ui'
 import { practiceConfig } from '../config/practice'
@@ -37,8 +34,6 @@ const COPY = {
     en: 'These areas reflect her academic and research career; the specific indication for each consultation is assessed individually.',
   },
   linkedin: { es: 'Ver perfil de LinkedIn', en: 'View LinkedIn profile' },
-  contactLink: { es: 'Ir a contacto', en: 'Go to contact' },
-  whatsapp: { es: 'Consultar por WhatsApp', en: 'Message on WhatsApp' },
   imageAlt: {
     es: 'Detalle tranquilo: taza de té y luz cálida en un espacio de consulta',
     en: 'Calm detail: a cup of tea and warm light in a consultation space',
@@ -88,7 +83,6 @@ const AREAS: Array<Record<'en' | 'es', string>> = [
 
 export default function About() {
   const { lang } = useLanguage()
-  const { requestWhatsApp } = useWhatsApp()
   usePageMeta({ title: pageTitle('Dra. Marta Peciña', lang), path: '/la-dra-pecina' })
 
   return (
@@ -112,20 +106,6 @@ export default function About() {
               <p className="mt-4 text-lg leading-relaxed text-ink-500">
                 {pick(lang, COPY.intro2)}
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => requestWhatsApp()}
-                  className={buttonPrimary}
-                >
-                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                  {pick(lang, COPY.whatsapp)}
-                </button>
-                <Link to="/contacto" className={cn(buttonSecondary)}>
-                  {pick(lang, COPY.contactLink)}
-                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
-                </Link>
-              </div>
             </Reveal>
             <Reveal delay={0.1}>
               <picture>
