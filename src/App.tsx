@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { StickyMobileBar } from './components/WhatsAppCtas'
 import { InstallPrompt } from './components/InstallPrompt'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -58,7 +57,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <StickyMobileBar />
       {/* Subtle install affordance (renders only when the browser allows it) */}
       <div className="fixed bottom-6 left-4 z-40 hidden md:block">
         <InstallPrompt />
