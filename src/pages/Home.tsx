@@ -16,7 +16,6 @@ import {
   buttonSecondary,
 } from '../components/ui'
 import { Hero } from '../components/Hero'
-import { TrustIndicators } from '../components/TrustIndicators'
 import { HowItWorks } from '../components/HowItWorks'
 import { Services } from '../components/Services'
 import { AboutDoctor } from '../components/AboutDoctor'
@@ -105,7 +104,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustIndicators />
       <HowItWorks />
       <Services />
       <AboutDoctor />

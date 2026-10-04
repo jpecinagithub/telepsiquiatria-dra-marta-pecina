@@ -34,7 +34,7 @@ No modifications needed:
 
 ```
 src/
-  components/   Header, Hero, TrustIndicators, AboutDoctor, Services,
+  components/   Header, Hero, AboutDoctor, Services,
                 HowItWorks, FirstConsultation, FaqSection,
                 EmergencyNotice, Footer, InstallPrompt, WhatsAppProvider
                 (privacy interstitial), Seo (usePageMeta, JsonLd), ui
